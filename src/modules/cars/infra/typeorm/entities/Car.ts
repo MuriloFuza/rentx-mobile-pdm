@@ -1,6 +1,6 @@
 import {
   Column, CreateDateColumn, Entity, JoinColumn,
-  JoinTable, ManyToMany, ManyToOne, PrimaryColumn,
+  JoinTable, ManyToMany, ManyToOne, OneToOne, PrimaryColumn,
 } from 'typeorm';
 import { v4 as uuidV4 } from 'uuid';
 
@@ -47,6 +47,10 @@ class Car {
     inverseJoinColumns: [{ name: 'specification_id' }],
   })
   specifications: Specification[]
+
+  @Column()
+  image: string;
+
 
   @CreateDateColumn()
   created_at: Date;

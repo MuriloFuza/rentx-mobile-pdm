@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm';
 
 export class CreateRentals1618407721980 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -67,6 +67,18 @@ export class CreateRentals1618407721980 implements MigrationInterface {
             onUpdate: 'SET NULL',
           },
         ],
+      }),
+    );
+
+    await queryRunner.createForeignKey(
+      'rentals',
+      new TableForeignKey({
+        name: 'FKRentalCar',
+        referencedTableName: 'cars',
+        referencedColumnNames: ['id'],
+        columnNames: ['car_id'],
+        onDelete: 'SET NULL',
+        onUpdate: 'SET NULL',
       }),
     );
   }

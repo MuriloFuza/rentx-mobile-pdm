@@ -10,6 +10,7 @@ interface ICreateCarDTO{
   category_id: string;
   specifications?: Specification[];
   id?: string;
+  image: string;
 }
 
 export { ICreateCarDTO };

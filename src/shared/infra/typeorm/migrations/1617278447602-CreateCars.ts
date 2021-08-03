@@ -47,6 +47,11 @@ export class CreateCars1617278447602 implements MigrationInterface {
             isNullable: true,
           },
           {
+            name: 'image',
+            type: 'varchar',
+            isNullable: true,
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',

@@ -1,5 +1,5 @@
 import {
-  Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, UpdateDateColumn,
+  Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToOne, OneToOne, PrimaryColumn, UpdateDateColumn,
 } from 'typeorm';
 import { v4 as uuidV4 } from 'uuid';
 
@@ -10,7 +10,7 @@ class Rental {
   @PrimaryColumn()
   id: string;
 
-  @ManyToOne(() => Car)
+  @OneToOne(() => Car)
   @JoinColumn({ name: 'car_id' })
   car: Car;
 

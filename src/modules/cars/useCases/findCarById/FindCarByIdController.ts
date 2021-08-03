@@ -10,6 +10,7 @@ class FindCarByIdController {
     } = request.params;
     const findCar = container.resolve(FindCarByIdUseCase);
 
+
     const car = await findCar.execute({
       id,
     });
